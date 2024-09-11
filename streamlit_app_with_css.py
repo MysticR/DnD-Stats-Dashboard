@@ -72,7 +72,7 @@ st.markdown(
 
 #######################
 # Load data
-stats = pd.read_csv("C:/Users/rahma/OneDrive/Documents/DnD/Stats/stats.txt")
+stats = pd.read_csv("data/stats.txt")
 
 #######################
 # Sidebar
@@ -117,7 +117,7 @@ st.title("🎲 DnD Stats Dashboard")
 #######################
 # Plots
 def d20(selected_char):
-    stats = pd.read_csv("C:/Users/rahma/OneDrive/Documents/DnD/Stats/stats.txt")
+    stats = pd.read_csv("data/stats.txt")
     mdf_selected_char = stats[stats.char == selected_char]
     md20 = mdf_selected_char[mdf_selected_char[" d"] == 20]
     md20hit = md20[md20[" dmg"] == 0]
@@ -147,7 +147,7 @@ ovhit.update_layout(showlegend=False)
 
 # ---------------------#
 def dmg(selected_char):
-    stats = pd.read_csv("C:/Users/rahma/OneDrive/Documents/DnD/Stats/stats.txt")
+    stats = pd.read_csv("data/stats.txt")
     mdf_selected_char = stats[stats.char == selected_char]
     dmg = mdf_selected_char[mdf_selected_char[" dmg"] == 1]
     xdmg = dmg[" r"].sum()
