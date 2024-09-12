@@ -226,8 +226,35 @@ ovchar.update_layout(showlegend=False)
 
 st.plotly_chart(ovchar, use_container_width=True)
 
+# -----------------------#
 
-stats = pd.read_csv("data/stats.txt")
+mdf_sel_char = stats[stats.char == "M"]
+
+d4 = dsplit(4, "M")
+d6 = dsplit(6, "M")
+d8 = dsplit(8, "M")
+d10 = dsplit(10, "M")
+d12 = dsplit(12, "M")
+d20 = dsplit(20, "M")
+
+mov = go.Figure()
+mov.update_layout(
+    title={"text": "Meluk"},
+    xaxis=dict(title="Dice"),
+    yaxis=dict(title="Rolls"),
+)
+mov.update_yaxes(range=[0, 20])
+# Add box plots
+mov = mov.add_trace(go.Box(y=d4[" r"], name="d4"))
+mov = mov.add_trace(go.Box(y=d6[" r"], name="d6"))
+mov = mov.add_trace(go.Box(y=d8[" r"], name="d8"))
+mov = mov.add_trace(go.Box(y=d10[" r"], name="d10"))
+mov = mov.add_trace(go.Box(y=d12[" r"], name="d12"))
+mov = mov.add_trace(go.Box(y=d20[" r"], name="d20"))
+mov.update_layout(showlegend=False)
+
+st.plotly_chart(mov,use_container_width=True)
+
 st.dataframe(
     data=pd.DataFrame(stats),
     use_container_width=True,
