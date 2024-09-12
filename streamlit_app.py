@@ -230,12 +230,12 @@ st.plotly_chart(ovchar, use_container_width=True)
 
 mdf_sel_char = stats[stats.char == "M"]
 
-d4 = dsplit(4, "M")
-d6 = dsplit(6, "M")
-d8 = dsplit(8, "M")
-d10 = dsplit(10, "M")
-d12 = dsplit(12, "M")
-d20 = dsplit(20, "M")
+d4 = dsplit(4, "Meluk")
+d6 = dsplit(6, "Meluk")
+d8 = dsplit(8, "Meluk")
+d10 = dsplit(10, "Meluk")
+d12 = dsplit(12, "Meluk")
+d20 = dsplit(20, "Meluk")
 
 mov = go.Figure()
 mov.update_layout(
